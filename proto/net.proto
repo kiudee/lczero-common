@@ -91,6 +91,13 @@ message Weights {
   optional Layer ip1_mov_b = 14;
   optional Layer ip2_mov_w = 15;
   optional Layer ip2_mov_b = 16;
+
+  // Q head
+  // Output value estimates for each child
+  optional ConvBlock qvalue1 = 17;
+  optional ConvBlock qvalue = 18;
+  optional Layer ip_qval_w = 19;
+  optional Layer ip_qval_b = 20;
 }
 
 message TrainingParams {
@@ -141,6 +148,7 @@ message NetworkFormat {
     POLICY_UNKNOWN = 0;
     POLICY_CLASSICAL = 1;
     POLICY_CONVOLUTION = 2;
+    POLICY_QVALUE = 3;
   }
   optional PolicyFormat policy = 4;
 
